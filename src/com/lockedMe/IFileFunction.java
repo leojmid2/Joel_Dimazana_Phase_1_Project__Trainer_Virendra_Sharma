@@ -5,7 +5,7 @@ import java.io.File;
 interface IFileFunction {
 	
 	boolean showFiles(); 
-	void searchFile();
-	void deleteFile();
+	void searchFile(File file);
+	void deleteFile(File file);
 	void addFile(File file);
 }
