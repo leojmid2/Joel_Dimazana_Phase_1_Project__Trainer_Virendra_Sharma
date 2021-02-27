@@ -2,10 +2,12 @@ package com.lockedMe;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class FileFunction implements IFileFunction {
 
-	//need ascending order sorting
 	@Override
 	public boolean showFiles() {
 		
@@ -14,12 +16,19 @@ public class FileFunction implements IFileFunction {
 
 		String[] fileList = file.list();
 		
+		//need to change implementation of sort and search using algorithm.
+		
+		List<String> fileList2 = Arrays.asList(fileList);
+		Collections.sort(fileList2);
+		
 		if (fileList.length==0) {
 			System.out.println(file.getPath() +" - No files found in the current directory");
 		}
 		else {
 			System.out.println("This are files in '" + file.getPath() + "' directory");
-			for (String name:fileList) {
+			
+			
+			for (String name:fileList2) {
 				System.out.println(name);
 			}
 		}
@@ -39,7 +48,6 @@ public class FileFunction implements IFileFunction {
 	
 	@Override
 	public void deleteFile(File file) {
-		// TODO Auto-generated method stub
 		if (file.exists()) {
 			file.delete();
 			System.out.println("File: " + file + " successfully deleted");
@@ -48,7 +56,6 @@ public class FileFunction implements IFileFunction {
 			System.out.println("File: " + file + " not found");
 	}
 	
-
 
 	@Override
 	public void  addFile(File file) {
@@ -65,4 +72,4 @@ public class FileFunction implements IFileFunction {
 	}
 
 
-}
+}//end of class
