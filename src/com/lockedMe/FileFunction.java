@@ -11,6 +11,7 @@ public class FileFunction implements IFileFunction {
 	@Override
 	public boolean showFiles() {
 		
+		//Maybe user can find a path and search there
 		String workingPath = System.getProperty("user.dir");
 		File  file = new File(workingPath);
 
