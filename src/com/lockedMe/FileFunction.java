@@ -2,7 +2,6 @@ package com.lockedMe;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -10,32 +9,29 @@ import java.util.List;
 public class FileFunction implements IFileFunction {
 
 	@Override
-	public boolean showFiles() {
+	public void showFiles() {
 		
-		//Maybe user can find a path and search there
 		String workingPath = System.getProperty("user.dir");
-		File  file = new File(workingPath);
+		
+		File  file = new File(workingPath+"/myEmpty");
 
 		String[] fileList = file.list();
-		
-		//need to change implementation of sort and search using algorithm.
-		
-		List<String> fileList2 = Arrays.asList(fileList);
-		Collections.sort(fileList2);
-		
+
 		if (fileList.length==0) {
 			System.out.println(file.getPath() +" - No files found in the current directory");
 		}
 		else {
+			
 			System.out.println("This are files in '" + file.getPath() + "' directory");
+			List<String> fileList2 = Arrays.asList(fileList);
+			Collections.sort(fileList2);
 
 			for (String name:fileList2) {
 				System.out.println(name);
 			}
 		}
-		return false;
 	}
-
+	
 	@Override
 	public void searchFile(File filename) {
 		if(filename.exists()){
@@ -55,8 +51,7 @@ public class FileFunction implements IFileFunction {
 
 		
 		/**
-		 * Replace file.exists() function to accommodate case sensitive filename
-		 * 
+		 * Replaced file.exists() function to accommodate case sensitive filename
 		 */
 		if (isExistCaseSensitive(file, files)) {
 			file.delete();
@@ -88,25 +83,7 @@ public class FileFunction implements IFileFunction {
 		} catch (IOException e) {
 			e.printStackTrace();
 		};
-		
 	}
 
-	@Override
-	public List<String> listDirectory() {
-		String workingPath = System.getProperty("user.dir");
-		File  currentFiles = new File(workingPath);
-		List<String> directory = new ArrayList<String>();
-		
-		System.out.println("current " + currentFiles);
-		
-		File[] files = currentFiles.listFiles();
-		for (File file:files) {
-			if (file.isDirectory()) {
-				directory.add(file.getName());
-			}
-		}
-		Collections.sort(directory);
-		return directory;	
-	}
 
 }//end of class

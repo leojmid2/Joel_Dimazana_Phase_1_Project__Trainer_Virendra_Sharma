@@ -3,6 +3,11 @@ package com.lockedMe;
 import java.util.Scanner;
 import java.io.File;
 
+
+/*
+ * LockedMe Main program
+ * by: Joel Dimazana
+ */
 public class LockedMeMain {
 	
 	IFileFunction fileFunction = new FileFunction();
@@ -94,13 +99,6 @@ public class LockedMeMain {
 		} while (!selection.matches("[adsADS]"));	
 					
 		if(selection.equalsIgnoreCase("A")) {
-/*			System.out.println("List of Directory: "+ fileFunction.listDirectory().toString());
-			System.out.println("Please choose the directory you wish to add the file."); 
-			System.out.println("If directory is not specified, the file will be added to the current directory"); 
-			String directory = userInput.next();
-			
-*/
-			
 			System.out.println("Please enter the file to add"); 
 			fileName = userInput.next().toLowerCase(); 	//This is to ignore case and always convert to lower case
 			file = new File(fileName);
