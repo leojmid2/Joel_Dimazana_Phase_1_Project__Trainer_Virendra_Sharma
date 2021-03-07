@@ -13,7 +13,7 @@ public class FileFunction implements IFileFunction {
 		
 		String workingPath = System.getProperty("user.dir");
 		
-		File  file = new File(workingPath+"/myEmpty");
+		File  file = new File(workingPath);
 
 		String[] fileList = file.list();
 
