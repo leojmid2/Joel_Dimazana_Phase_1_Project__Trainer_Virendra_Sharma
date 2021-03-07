@@ -64,7 +64,7 @@ public class LockedMeMain {
 		do {
 			System.out.println("Please choose an OPTION: ");
 			System.out.println("PRESS [1] to Display Current files ");
-			System.out.println("PRESS [2] to Display User files ");
+			System.out.println("PRESS [2] to Display User Options [Add][Delete][Search] ");
 			System.out.println("PRESS [3] to Close the application ");
 				
 			selection = userInput.next();
@@ -94,16 +94,20 @@ public class LockedMeMain {
 		} while (!selection.matches("[adsADS]"));	
 					
 		if(selection.equalsIgnoreCase("A")) {
-			System.out.println("Please enter a file to add"); 
+/*			System.out.println("List of Directory: "+ fileFunction.listDirectory().toString());
+			System.out.println("Please choose the directory you wish to add the file."); 
+			System.out.println("If directory is not specified, the file will be added to the current directory"); 
+			String directory = userInput.next();
 			
-			//This is to ignore case and always convert to lower case
-			fileName = userInput.next().toLowerCase();
+*/
 			
+			System.out.println("Please enter the file to add"); 
+			fileName = userInput.next().toLowerCase(); 	//This is to ignore case and always convert to lower case
 			file = new File(fileName);
 			fileFunction.addFile(file);
 		}
 		else if(selection.equalsIgnoreCase("D")) {
-			System.out.println("Please enter a file to delete"); 
+			System.out.println("Please enter a file to delete(Case Sensitive)."); 
 			file = new File(userInput.next());
 			fileFunction.deleteFile(file);
 		}
